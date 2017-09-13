@@ -1,7 +1,0 @@
-spring:
-   jpa:
-     hibernate:
-       ddl-auto: create-drop
-server:
-  port: 8101
-defaultDepartmentId: 1
