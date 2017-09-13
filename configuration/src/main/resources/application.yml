@@ -5,5 +5,5 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/landrzejewski/training
+          uri: https://github.com/landrzejewski/spring-cloud-training
           search-paths: configuration-files
