@@ -2,6 +2,7 @@ zuul:
   prefix: /api-v1
   host:
     socket-timeout-millis: 20000
+    sensitive-headers: Cookie, Set-Cookie
 hystrix:
   command:
     default:
