@@ -1,6 +1,9 @@
 package pl.training.cloud.users.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,6 +12,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+@RequiredArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 @Entity
 @Data
@@ -20,8 +25,10 @@ public class User implements UserDetails {
     private String firstName;
     private String lastName;
     private Long departmentId;
-    @Column(nullable = false)
+    @NonNull
+    @Column(unique = true)
     private String login;
+    @NonNull
     @Column(nullable = false)
     private String password;
     private boolean active;
