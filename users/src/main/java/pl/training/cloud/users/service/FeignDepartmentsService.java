@@ -1,5 +1,6 @@
 package pl.training.cloud.users.service;
 
+import feign.FeignException;
 import org.springframework.stereotype.Service;
 import pl.training.cloud.users.model.Department;
 
@@ -16,8 +17,13 @@ public class FeignDepartmentsService implements DepartmentsService {
 
     @Override
     public Optional<Department> getDepartmentById(Long id) {
-        Department department = feignDepartmentsClient.getDepartmentById(id);
-        return department != null ? Optional.of(department) : Optional.empty();
+        try {
+            Department department = feignDepartmentsClient.getDepartmentById(id);
+            return department != null ? Optional.of(department) : Optional.empty();
+        } catch (FeignException ex) {
+            ex.printStackTrace();
+        }
+        return Optional.empty();
     }
 
 }
