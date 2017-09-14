@@ -4,4 +4,3 @@ spring:
        ddl-auto: create-drop
 server:
   port: 8101
-defaultDepartmentId: "{cipher}984c90964e120e0e9bee9c7dca37692f8e27caf9354fd4d3ff987a3698bc858f"
