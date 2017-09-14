@@ -65,6 +65,7 @@ public class UsersService implements UserDetailsService {
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         return usersRepository.getByLogin(login)
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("User %s not found", login)));
+
     }
 
 }
