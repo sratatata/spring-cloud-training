@@ -13,6 +13,10 @@
 
     <artifactId>configuration</artifactId>
 
+    <build>
+        <finalName>configuration</finalName>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
