@@ -23,13 +23,18 @@ public class DepartmentsService {
         return department;
     }
 
-    @HystrixCommand(commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "12000")
-    })
+    @HystrixCommand(
+            fallbackMethod = "getDepartmentByIdFallback"
+  //          commandProperties = @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "12000")
+    )
     public Department getDepartmentById(Long id) {
         randomDelay();
         return departmentsRepository.getById(id)
                 .orElseThrow(DepartmentNotFoundException::new);
+    }
+
+    public Department getDepartmentByIdFallback(Long id) {
+        return new Department("MAIN");
     }
 
     public void updateDepartment(Department department) {
