@@ -1,1 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=pl.training.cloud.common.feign.OAuth2FeignAutoConfiguration
