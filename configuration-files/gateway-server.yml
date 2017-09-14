@@ -1,2 +1,4 @@
 zuul:
   prefix: /api-v1
+  host:
+    socket-timeout-millis: 20000
