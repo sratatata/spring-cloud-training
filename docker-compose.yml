@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+  configuration_server:
+    image: training/configuration
+    restart: on-failure
+    environment:
+      - ENCRYPT_KEY = ${ENCRYPT_KEY}
+    networks:
+      cloud:
+        ipv4_address: ${CONFIGURATION_SERVER}
+
+  discovery_server:
+    image: training/discovery
+    restart: on-failure
+    ports:
+      - 8002:8002
+    environment:
+      - ENCRYPT_KEY=${ENCRYPT_KEY}
+      - CONFIGURATION_SERVER_URI=${CONFIGURATION_SERVER_URI}
+    networks:
+      cloud:
+        ipv4_address: ${DISCOVERY_SERVER}
+
+networks:
+  cloud:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: ${SUBNET}
