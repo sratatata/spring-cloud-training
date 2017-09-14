@@ -8,12 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @EqualsAndHashCode(exclude = "users")
-@RequiredArgsConstructor
 @NoArgsConstructor
 @Table(name = "authorities")
 @Entity
 @Data
 public class Authority implements GrantedAuthority {
+
+    private static final String ROLE_PREFIX = "ROLE_";
 
     @GeneratedValue
     @Id
@@ -22,6 +23,10 @@ public class Authority implements GrantedAuthority {
     private String name;
     @ManyToMany(mappedBy = "authorities")
     private Set<User> users = new HashSet<>();
+
+    public Authority(String name) {
+        this.name = ROLE_PREFIX + name;
+    }
 
     @Override
     public String getAuthority() {

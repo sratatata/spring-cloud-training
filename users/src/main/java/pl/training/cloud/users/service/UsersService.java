@@ -42,7 +42,7 @@ public class UsersService implements UserDetailsService {
     }
 
     private void configureAuthority(User user) {
-        Authority authority = new Authority(Role.USER.nameWithPrefix());
+        Authority authority = new Authority(Role.USER.name());
         user.addAuthority(authority);
     }
 
