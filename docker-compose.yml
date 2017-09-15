@@ -58,7 +58,7 @@ services:
       - PING_TIMEOUT=${PING_TIMEOUT}
       - CONFIGURATION_SERVER_URI=${CONFIGURATION_SERVER_URI}
       - DEFAULT_PORT=${DEFAULT_PORT}
-      - DEFAULT_PROFIL=${DEFAULT_PROFIL}
+      - DEFAULT_PROFILE=${DEFAULT_PROFILE}
     networks:
       cloud:
 
@@ -83,7 +83,7 @@ services:
       - PING_TIMEOUT=${PING_TIMEOUT}
       - CONFIGURATION_SERVER_URI=${CONFIGURATION_SERVER_URI}
       - DEFAULT_PORT=${DEFAULT_PORT}
-      - DEFAULT_PROFIL=${DEFAULT_PROFIL}
+      - DEFAULT_PROFILE=${DEFAULT_PROFILE}
     networks:
       cloud:
         ipv4_address: ${CLIENT_SERVER}
@@ -120,6 +120,9 @@ services:
       - TOPICS=messages
       - ADVERTISED_HOST=localhost
       - ADVERTISED_PORT=9092
+    networks:
+      cloud:
+        ipv4_address: ${KAFKA_SERVER}
 
 networks:
   cloud:
