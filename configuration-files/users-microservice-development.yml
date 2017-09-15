@@ -10,8 +10,7 @@ spring:
              content-type: application/json
          kafka:
            binder:
-             zkNodes: localhost:9093
-             brokers: localhost:2181
+             defaultBrokerPort: 9093
 server:
   port: 8101
 security:
