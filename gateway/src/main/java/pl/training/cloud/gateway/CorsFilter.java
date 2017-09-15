@@ -16,7 +16,7 @@ import static org.springframework.http.HttpHeaders.*;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Component
-public class CORSFilter implements Filter {
+public class CorsFilter implements Filter {
 
     private static final String ALLOWED_METHODS = "GET,POST,PUT,DELETE";
     private static final String ALLOWED_HEADERS = "Origin, X-Requested-With, Content-Type, Accept, Authorization";

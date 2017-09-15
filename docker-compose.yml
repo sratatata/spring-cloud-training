@@ -16,6 +16,7 @@ services:
       - 8002:8002
     environment:
       - ENCRYPT_KEY=${ENCRYPT_KEY}
+      - PING_TIMEOUT=${PING_TIMEOUT}
       - CONFIGURATION_SERVER_URI=${CONFIGURATION_SERVER_URI}
       - CONFIGURATION_SERVER_PORT=${CONFIGURATION_SERVER_PORT}
     networks:
@@ -27,12 +28,26 @@ services:
     restart: on-failure
     environment:
       - ENCRYPT_KEY=${ENCRYPT_KEY}
+      - PING_TIMEOUT=${PING_TIMEOUT}
       - CONFIGURATION_SERVER_URI=${CONFIGURATION_SERVER_URI}
       - CONFIGURATION_SERVER_PORT=${CONFIGURATION_SERVER_PORT}
       - DISCOVERY_SERVER_PORT=${DISCOVERY_SERVER_PORT}
     networks:
       cloud:
         ipv4_address: ${GATEWAY_SERVER}
+
+  users_database:
+    image: postgres:9.6.5-alpine
+    environment:
+      - POSTGRES_DB=users
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - PGDATA=/var/lib/postgresql/data/application
+    volumes:
+      - ./data/users:/var/lib/postgresql/data/application
+    networks:
+      cloud:
+        ipv4_address: ${USERS_DATABASE_SERVER}
 
 networks:
   cloud:
