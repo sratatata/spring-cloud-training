@@ -1,0 +1,23 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <div>
+      <h1 class="logo-name">ID</h1>
+    </div>
+    <form class="m-t" #loginForm="ngForm" novalidate (ngSubmit)="login()">
+      <div class="form-group">
+        <input class="form-control" name="username" placeholder="{{ 'security.login-form.username' | translate }}" [(ngModel)]="username" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="{{ 'security.login-form.password' | translate }}" [(ngModel)]="password" required>
+      </div>
+      <button class="btn btn-primary block full-width m-b" [disabled]="loginForm.invalid || pendingRequest">{{ 'security.login-form.login' | translate }}
+      </button>
+    </form>
+    <div *ngIf="loginError" class="error-message">
+      {{ 'security.login-form.loginFailedMessage' | translate }}
+    </div>
+    <p class="m-t">
+      <small>{{ 'security.login-form.footer' | translate }}</small>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<nav class="navbar navbar-static-top" style="margin-bottom: 0" *ngIf="!router.isActive('login', false)">
+  <div class="navbar-header"></div>
+  <ul class="nav navbar-top-links pull-right">
+    <li class="logout">
+      <a (click)="logout()">
+        <i class="fa fa-sign-out"></i>
+        {{ 'app.app.logout' | translate }}</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>

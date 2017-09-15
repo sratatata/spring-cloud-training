@@ -1,0 +1,9 @@
+{
+  "app.app.logout": "Logout",
+
+  "security.login-form.username": "Username",
+  "security.login-form.password": "Password",
+  "security.login-form.login": "Login",
+  "security.login-form.loginFailedMessage": "Invalid user or password",
+  "security.login-form.footer": "2017 All rights reserved"
+}
