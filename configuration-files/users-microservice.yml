@@ -6,3 +6,10 @@ logging:
   level:
     org.springframework.security: DEBUG
     org.springframework.web: DEBUG
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: messages
+          content-type: application/json
