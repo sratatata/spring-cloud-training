@@ -41,7 +41,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(usersService).passwordEncoder(passwordEncoder);
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void init() {
         try {
             usersService.loadUserByUsername("admin");
