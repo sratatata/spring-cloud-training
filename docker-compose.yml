@@ -5,6 +5,7 @@ services:
     restart: on-failure
     environment:
       - ENCRYPT_KEY=${ENCRYPT_KEY}
+      - DEFAULT_PROFILE=${DEFAULT_PROFILE}
     networks:
       cloud:
         ipv4_address: ${CONFIGURATION_SERVER}
