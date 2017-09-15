@@ -119,7 +119,7 @@ services:
       - "9092:9092"
     environment:
       - TOPICS=messages
-      - ADVERTISED_HOST=192.168.0.17  # 192.168.0.17 for production
+      - ADVERTISED_HOST=localhost  # 192.168.0.17 for production
       - ADVERTISED_PORT=9092
     networks:
       cloud:
