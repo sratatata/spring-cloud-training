@@ -44,7 +44,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @PostConstruct
     public void init() {
         try {
-            usersService.loadUserByUsername(Role.ADMIN.name());
+            usersService.loadUserByUsername("admin");
         } catch (UsernameNotFoundException ex) {
             User user = new User("admin", "123");
             user.addAuthority(new Authority(Role.ADMIN.name()));

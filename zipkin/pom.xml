@@ -13,6 +13,10 @@
 
     <artifactId>zipkin</artifactId>
 
+    <build>
+        <finalName>zipkin</finalName>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>io.zipkin.java</groupId>
