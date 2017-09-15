@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import pl.training.cloud.common.model.ResultPage;
 import pl.training.cloud.users.config.Role;
 import pl.training.cloud.users.model.Authority;
+import pl.training.cloud.users.model.Message;
 import pl.training.cloud.users.model.User;
 import pl.training.cloud.users.repository.UsersRepository;
 
@@ -21,10 +22,12 @@ public class UsersService implements UserDetailsService {
     private long defaultDepartmentId;
     private UsersRepository usersRepository;
     private PasswordEncoder passwordEncoder;
+    private EventEmitter eventEmitter;
 
-    public UsersService(UsersRepository usersRepository, PasswordEncoder passwordEncoder) {
+    public UsersService(UsersRepository usersRepository, PasswordEncoder passwordEncoder, EventEmitter eventEmitter) {
         this.usersRepository = usersRepository;
         this.passwordEncoder = passwordEncoder;
+        this.eventEmitter = eventEmitter;
     }
 
     public void addUser(User user) {
@@ -33,6 +36,7 @@ public class UsersService implements UserDetailsService {
         encodePassword(user);
         user.setActive(true);
         usersRepository.saveAndFlush(user);
+        notify(user);
     }
 
     private void configureDepartment(User user) {
@@ -50,6 +54,12 @@ public class UsersService implements UserDetailsService {
         String password = user.getPassword();
         String encodedPassword = passwordEncoder.encode(password);
         user.setPassword(encodedPassword);
+    }
+
+    private void notify(User user) {
+        String text = String.format("New user: %s in department %d", user.getLastName(), user.getDepartmentId());
+        Message message = new Message(user.getId(), text);
+        eventEmitter.emit(message);
     }
 
     public ResultPage<User> getUsers(int pageNumber, int pageSize) {

@@ -111,6 +111,16 @@ services:
       cloud:
         ipv4_address: ${ZIPKIN_SERVER}
 
+  kafka_server:
+    image: spotify/kafka
+    ports:
+      - "2181:2181"
+      - "9092:9092"
+    environment:
+      - TOPICS=messages
+      - ADVERTISED_HOST=localhost
+      - ADVERTISED_PORT=9092
+
 networks:
   cloud:
     driver: bridge
