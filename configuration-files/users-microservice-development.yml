@@ -2,15 +2,6 @@ spring:
    jpa:
      hibernate:
        ddl-auto: create-drop
-   cloud:
-     stream:
-       bindings:
-         output:
-           destination: messages
-           content-type: application/json
-         kafka:
-           binder:
-             defaultBrokerPort: 9093
 server:
   port: 8101
 security:
