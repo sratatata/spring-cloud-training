@@ -52,7 +52,7 @@ export class SecurityService {
     payload.set('username', username)
     payload.set('password', password)
     payload.set('grant_type', 'password')
-    payload.set('client_id', 'independentdigital')
+    payload.set('client_id', 'training')
     return payload.toString()
   }
 

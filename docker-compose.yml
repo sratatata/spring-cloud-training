@@ -4,7 +4,7 @@ services:
     image: training/configuration
     restart: on-failure
     environment:
-      - ENCRYPT_KEY = ${ENCRYPT_KEY}
+      - ENCRYPT_KEY=${ENCRYPT_KEY}
     networks:
       cloud:
         ipv4_address: ${CONFIGURATION_SERVER}
@@ -17,9 +17,22 @@ services:
     environment:
       - ENCRYPT_KEY=${ENCRYPT_KEY}
       - CONFIGURATION_SERVER_URI=${CONFIGURATION_SERVER_URI}
+      - CONFIGURATION_SERVER_PORT=${CONFIGURATION_SERVER_PORT}
     networks:
       cloud:
         ipv4_address: ${DISCOVERY_SERVER}
+
+  gateway_server:
+    image: training/gateway
+    restart: on-failure
+    environment:
+      - ENCRYPT_KEY=${ENCRYPT_KEY}
+      - CONFIGURATION_SERVER_URI=${CONFIGURATION_SERVER_URI}
+      - CONFIGURATION_SERVER_PORT=${CONFIGURATION_SERVER_PORT}
+      - DISCOVERY_SERVER_PORT=${DISCOVERY_SERVER_PORT}
+    networks:
+      cloud:
+        ipv4_address: ${GATEWAY_SERVER}
 
 networks:
   cloud:
