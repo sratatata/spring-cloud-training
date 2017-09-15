@@ -58,6 +58,7 @@ services:
       - PING_TIMEOUT=${PING_TIMEOUT}
       - CONFIGURATION_SERVER_URI=${CONFIGURATION_SERVER_URI}
       - DEFAULT_PORT=${DEFAULT_PORT}
+      - DEFAULT_PROFIL=${DEFAULT_PROFIL}
     networks:
       cloud:
 
@@ -82,6 +83,7 @@ services:
       - PING_TIMEOUT=${PING_TIMEOUT}
       - CONFIGURATION_SERVER_URI=${CONFIGURATION_SERVER_URI}
       - DEFAULT_PORT=${DEFAULT_PORT}
+      - DEFAULT_PROFIL=${DEFAULT_PROFIL}
     networks:
       cloud:
         ipv4_address: ${CLIENT_SERVER}
