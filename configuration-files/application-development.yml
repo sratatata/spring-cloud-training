@@ -8,5 +8,3 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8002/eureka/
-signing:
-  key: "{cipher}100bbcf1f144b39ae6c02180b9e9bd71a11b79e2895a0b3ce1a4c055d544c6232de804e6d3daf0c2b70ebfac5a9a7520"
