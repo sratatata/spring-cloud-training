@@ -26,6 +26,8 @@ services:
   gateway_server:
     image: training/gateway
     restart: on-failure
+    ports:
+      - 8000:8080
     environment:
       - ENCRYPT_KEY=${ENCRYPT_KEY}
       - PING_TIMEOUT=${PING_TIMEOUT}
@@ -47,6 +49,17 @@ services:
     networks:
       cloud:
         ipv4_address: ${USERS_DATABASE_SERVER}
+
+  users_microservice:
+    image: training/users
+    restart: on-failure
+    environment:
+      - ENCRYPT_KEY=${ENCRYPT_KEY}
+      - PING_TIMEOUT=${PING_TIMEOUT}
+      - CONFIGURATION_SERVER_URI=${CONFIGURATION_SERVER_URI}
+      - DEFAULT_PORT=${DEFAULT_PORT}
+    networks:
+      cloud:
 
 networks:
   cloud:
