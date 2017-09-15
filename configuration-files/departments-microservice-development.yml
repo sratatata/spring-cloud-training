@@ -2,12 +2,5 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
-  cloud:
-    stream:
-      bindings:
-        output:
-          destination: messages
-          content-type: application/json
-          group: training
 server:
   port: 8100

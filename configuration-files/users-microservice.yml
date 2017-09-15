@@ -1,8 +1,11 @@
+spring:
+  cloud:
+    stream:
+     bindings:
+       output:
+         destination: messages
+         content-type: application/json
 security:
   oauth2:
     resource:
       filter-order: 3
-logging:
-  level:
-    org.springframework.security: DEBUG
-    org.springframework.web: DEBUG

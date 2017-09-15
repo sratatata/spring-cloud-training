@@ -2,18 +2,8 @@ spring:
    jpa:
      hibernate:
        ddl-auto: create-drop
-   cloud:
-     stream:
-       bindings:
-         output:
-           destination: messages
-           content-type: application/json
 server:
   port: 8101
-security:
-  oauth2:
-    resource:
-      filter-order: 3
 logging:
   level:
     org.springframework.security: DEBUG
