@@ -4,10 +4,6 @@ spring:
        ddl-auto: create-drop
 server:
   port: 8101
-security:
-  oauth2:
-    resource:
-      filter-order: 3
 logging:
   level:
     org.springframework.security: DEBUG
