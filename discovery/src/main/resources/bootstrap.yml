@@ -4,6 +4,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8001
+      label: 09-OAuth2-JWT
 eureka:
   client:
     register-with-eureka: false
