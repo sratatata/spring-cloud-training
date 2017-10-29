@@ -4,6 +4,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8001
+      label: 10-Docker
 eureka:
   client:
     register-with-eureka: false
