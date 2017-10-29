@@ -4,6 +4,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8001
+      label: 07-Sleuth-and-Zipkin
 eureka:
   client:
     register-with-eureka: false
