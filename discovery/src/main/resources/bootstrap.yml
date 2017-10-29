@@ -4,6 +4,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8001
+      label: 06-Availability
 eureka:
   client:
     register-with-eureka: false
