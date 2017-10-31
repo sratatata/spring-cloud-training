@@ -25,7 +25,7 @@ public class DepartmentsService {
 
     @HystrixCommand(
             fallbackMethod = "getDepartmentByIdFallback"
-  //          commandProperties = @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "12000")
+            //commandProperties = @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "12000")
     )
     public Department getDepartmentById(Long id) {
         randomDelay();
