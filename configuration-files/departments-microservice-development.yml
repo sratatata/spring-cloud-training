@@ -4,3 +4,4 @@ spring:
       ddl-auto: create-drop
 server:
   port: 8100
+test: 123
