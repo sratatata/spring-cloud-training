@@ -57,7 +57,7 @@ public class UsersService implements UserDetailsService {
     }
 
     private void notify(User user) {
-        String text = String.format("New user: %s in department %d", user.getLastName(), user.getDepartmentId());
+        String text = String.format("New user: %s in department %d", user, user.getDepartmentId());
         Message message = new Message(user.getId(), text);
         eventEmitter.emit(message);
     }
