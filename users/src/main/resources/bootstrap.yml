@@ -6,3 +6,4 @@ spring:
       uri: http://localhost:8001
       label: 11-Kafka
 defaultDepartmentId: "{cipher}984c90964e120e0e9bee9c7dca37692f8e27caf9354fd4d3ff987a3698bc858f"
+defaultValidity: "1"

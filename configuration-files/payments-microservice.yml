@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    stream:
+     bindings:
+       output:
+         destination: paymentsMessages
+         content-type: application/json

@@ -25,6 +25,7 @@ public class User implements UserDetails {
     private String firstName;
     private String lastName;
     private Long departmentId;
+    private Integer validity;
     @NonNull
     @Column(unique = true)
     private String login;

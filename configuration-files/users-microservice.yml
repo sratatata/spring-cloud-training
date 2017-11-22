@@ -5,6 +5,12 @@ spring:
        output:
          destination: messages
          content-type: application/json
+
+       input:
+         destination: messages
+         content-type: application/json
+         group: training
+
 security:
   oauth2:
     resource:

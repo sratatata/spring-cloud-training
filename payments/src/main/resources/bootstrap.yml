@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: payments-microservice
+  cloud:
+    config:
+      uri: http://localhost:8001
+      label: 11-Kafka

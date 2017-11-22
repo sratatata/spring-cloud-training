@@ -20,6 +20,8 @@ public class UsersService implements UserDetailsService {
 
     @Value("${defaultDepartmentId}")
     private long defaultDepartmentId;
+    @Value("${defaultValidity}")
+    private long defaultValidity;
     private UsersRepository usersRepository;
     private PasswordEncoder passwordEncoder;
     private EventEmitter eventEmitter;
@@ -58,6 +60,13 @@ public class UsersService implements UserDetailsService {
 
     private void notify(User user) {
         String text = String.format("New user: %s in department %d", user.getLastName(), user.getDepartmentId());
+        Message message = new Message(user.getId(), text);
+        eventEmitter.emit(message);
+    }
+
+    private void updateValidity(User user, int time){
+        user.setValidity(user.getValidity()+time);
+        String text = String.format("User validity changed to: %d", user.getValidity());
         Message message = new Message(user.getId(), text);
         eventEmitter.emit(message);
     }
